@@ -18,12 +18,19 @@ def invio(client_UDP):
     while True:
         data = input("")
         client_UDP.sendto(data.encode('utf-8'), SERVER_ADDRESS)
+        if data.lower()=="exit":
+            print("chiudo la connessione")
+            break
+
 
 # Funzione per ricevere messaggi
 def ricezione(client_UDP):
     while True:
         data, address = client_UDP.recvfrom(BUFFER_SIZE)
         print(f"Server {address}: {data.decode('utf-8')}")
+        if data.decode('utf-8').lower()=="exit":
+            print("chiudo la connessione")
+            break
 
 if __name__ == "__main__":
     main()
