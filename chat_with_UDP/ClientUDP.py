@@ -13,9 +13,6 @@ def main():
     thread_invio.start()
     thread_ricezione.start()
 
-    thread_invio.join()
-    thread_ricezione.join()
-
 # Funzione per inviare messaggi
 def invio(client_UDP):
     while True:

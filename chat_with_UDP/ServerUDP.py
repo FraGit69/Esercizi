@@ -12,13 +12,10 @@ def main():
     server_UDP.sendto("Starting communication...".encode(), client_address)
     # Crea i thread per inviare e ricevere messaggi
     thread_invio = t.Thread(target=invio, args=(server_UDP, client_address))
-    thread_ricezione = t.Thread(target=ricezione, args=(server_UDP,))
+    thread_ricezione = t.Thread(target=ricezione, args=(server_UDP,), daemon=True)
     
     thread_invio.start()
     thread_ricezione.start()
-
-    thread_invio.join()
-    thread_ricezione.join()
 
 # Funzione per inviare messaggi
 def invio(server_UDP, client_address):
