@@ -1,7 +1,7 @@
 import socket as s
 import threading as t
 
-SERVER_ADDRESS = ("192.168.1.55", 12345)
+SERVER_ADDRESS = ("localhost", 12345)
 BUFFER_SIZE = 4096
 
 def main():
